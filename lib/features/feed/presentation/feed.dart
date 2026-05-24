@@ -66,14 +66,16 @@ class FeedStateWidget extends State<Feed> {
                       ),
 
                       SizedBox(height: 32),
-                      Expanded(
-                        child: ListView.builder(
-                          itemCount: state.posts.length,
-                          itemBuilder: (contxt, index) {
-                            return PostWidget(post: state.posts[index]);
-                          },
-                        ),
-                      ),
+                      state.posts.isNotEmpty
+                          ? Expanded(
+                            child: ListView.builder(
+                              itemCount: state.posts.length,
+                              itemBuilder: (contxt, index) {
+                                return PostWidget(post: state.posts[index]);
+                              },
+                            ),
+                          )
+                          : Center(child: Text('No posts yet', style: TextStyle(color: Colors.white54))),
 
                       SizedBox(height: 10),
                     ],
