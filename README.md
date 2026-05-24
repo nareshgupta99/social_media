@@ -114,6 +114,10 @@ Each feature is self-contained with its own bloc, data, repository, and presenta
 
 ## ⚙️ Setup & Installation
 
+### Requirements
+flutter 3.29.0
+Dart 3.7.0
+
 ### 1. Clone the repository
 ```bash
 git clone https://github.com/nareshgupta99/social_media.git
