@@ -17,8 +17,8 @@ class Feed extends StatefulWidget {
 class FeedStateWidget extends State<Feed> {
   @override
   void initState() {
-    super.initState();
-    context.read<FeedBloc>().add(LoadFeedEvent()); // ← load when screen opens
+    super.initState();  
+    context.read<FeedBloc>().add(LoadFeedEvent()); 
   }
 
   @override
