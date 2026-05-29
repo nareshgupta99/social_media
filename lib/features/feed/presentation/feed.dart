@@ -6,6 +6,7 @@ import 'package:social_media/core/widget/profile_avatar.dart';
 import 'package:social_media/features/create_post/bloc/create_post_bloc.dart';
 import 'package:social_media/features/create_post/presentation/preview_screen.dart';
 import 'package:social_media/features/feed/bloc/feed_bloc.dart';
+import 'package:social_media/features/shorts/presentation/shorts_view.dart';
 
 class Feed extends StatefulWidget {
   const Feed({super.key});
@@ -17,8 +18,8 @@ class Feed extends StatefulWidget {
 class FeedStateWidget extends State<Feed> {
   @override
   void initState() {
-    super.initState();  
-    context.read<FeedBloc>().add(LoadFeedEvent()); 
+    super.initState();
+    context.read<FeedBloc>().add(LoadFeedEvent());
   }
 
   @override
@@ -30,6 +31,20 @@ class FeedStateWidget extends State<Feed> {
       },
       builder: (context, state) {
         return Scaffold(
+          bottomNavigationBar: BottomNavigationBar(
+            selectedItemColor: Colors.white38,
+            onTap: (index) {
+              if (index == 0) {
+                Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => Feed()));
+              } else if (index == 1) {
+                Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => ShortsView()));
+              }
+            },
+            items: [
+              BottomNavigationBarItem(icon: Icon(Icons.home), label: ""),
+              BottomNavigationBarItem(icon: Icon(CupertinoIcons.play_rectangle), label: ""),
+            ],
+          ),
           // App Bar
           appBar: AppBar(
             title: Row(
@@ -71,6 +86,7 @@ class FeedStateWidget extends State<Feed> {
                             child: ListView.builder(
                               itemCount: state.posts.length,
                               itemBuilder: (contxt, index) {
+                                
                                 return PostWidget(post: state.posts[index]);
                               },
                             ),

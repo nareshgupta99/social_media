@@ -162,6 +162,7 @@ class _PostCarouselState extends State<PostCarousel> {
 
             itemBuilder: (_, index) {
               if (widget.media[index].type == "video") {
+                print("video ${widget.media[index].url}");
                 return PostVideoPlayer(assetPath: widget.media[index].url);
               } else {
                 return Container(
