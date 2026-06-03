@@ -66,11 +66,10 @@ class _ShortsViewState extends State<ShortsView> {
                 // like share and comments
                 Positioned(
                   // padding: EdgeInsets.symmetric(horizontal: 10),
-                  right: 15,
-                  top: 0,
-                  bottom: 0,
+                  right: 10,
+                  bottom: 50,
                   child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                    // mainAxisAlignment: MainAxisAlignment.center,
                     spacing: 20,
                     children: [
                       InkWell(

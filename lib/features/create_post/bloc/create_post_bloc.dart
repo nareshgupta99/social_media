@@ -5,8 +5,8 @@ import 'package:social_media/features/create_post/bloc/create_post_state.dart';
 import 'package:social_media/features/create_post/data/hive_model/post_hive_model.dart';
 import 'package:social_media/features/create_post/data/hive_model/post_media_hive.dart';
 import 'package:social_media/features/create_post/data/post_media.dart';
-import 'package:social_media/features/create_post/service/file_storage_service.dart';
-import 'package:social_media/features/create_post/service/media_picker_services.dart';
+import 'package:social_media/core/service/file_storage_service.dart';
+import 'package:social_media/core/service/media_picker_services.dart';
 import 'package:social_media/features/repository/post_repository.dart';
 import 'package:uuid/uuid.dart';
 

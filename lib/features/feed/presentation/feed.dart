@@ -1,3 +1,6 @@
+import 'dart:io';
+
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -22,6 +25,20 @@ class FeedStateWidget extends State<Feed> {
     context.read<FeedBloc>().add(LoadFeedEvent());
   }
 
+  Future<void> testFirestore() async {
+    print("in test firestore");
+
+    try {
+      await FirebaseFirestore.instance.collection('test').add({'name': 'Naresh', 'time': DateTime.now()});
+
+      print("SUCCESS");
+    } catch (e) {
+      print("fail->>$e");
+    }
+  }
+
+
+
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<FeedBloc, FeedState>(
@@ -33,7 +50,7 @@ class FeedStateWidget extends State<Feed> {
         return Scaffold(
           bottomNavigationBar: BottomNavigationBar(
             selectedItemColor: Colors.white38,
-            onTap: (index) {
+            onTap: (index) async {
               if (index == 0) {
                 Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => Feed()));
               } else if (index == 1) {
@@ -86,7 +103,6 @@ class FeedStateWidget extends State<Feed> {
                             child: ListView.builder(
                               itemCount: state.posts.length,
                               itemBuilder: (contxt, index) {
-                                
                                 return PostWidget(post: state.posts[index]);
                               },
                             ),
