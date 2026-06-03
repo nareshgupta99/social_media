@@ -27,7 +27,7 @@ class FirebaseStorageService {
       print(downloadUrl);
 
       return downloadUrl;
-    } catch (e) {f
+    } catch (e) {
       print("Upload Error: $e");
       return null;
     }
